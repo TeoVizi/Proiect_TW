@@ -1,6 +1,6 @@
 .header {
   background-color: $color-secondary-light-1;
-  padding: 3rem;
+
   position: sticky;
   font-size: 2rem;
 
@@ -10,6 +10,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   &__logo {
@@ -19,6 +21,10 @@
   }
 
   .navigation {
+
+    &__nav {
+      position: relative;
+    }
 
     &__button {
       cursor: pointer;
@@ -53,13 +59,38 @@
       }
     }
 
+    &__list {
+      display: none;
+      position: absolute;
+      background-color: $color-primary-dark-1;
+      border-radius: 5%;
+      padding: 3rem;
+      list-style: none;
+      top: 0;
+      left: 0;
+
+    }
+
+    &__link {
+
+      text-decoration: none;
+
+      &:link,
+      &:visited {
+        color: $color-primary-light-2;
+      }
+    }
+
     &__button:hover .navigation__icon::before {
       top: -1.2rem;
     }
 
     &__button:hover .navigation__icon::after {
-        top: 1.2rem;
+      top: 1.2rem;
+    }
 
+    &__button:hover .navigation__list  {
+      display: inherit;
     }
   }
 }
