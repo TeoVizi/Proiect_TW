@@ -17,83 +17,41 @@
   &__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
     fill: $color-secondary-dark-3;
   }
+}
+
 
   .navigation {
 
-    &__nav {
-      position: relative;
-    }
+    &__link,
+    &__link:link,
+    &__link:visited {
 
-    &__button {
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    &__icon {
-
-      display: inline-block;
-      width: 3.5rem;
-      height: .3rem;
-      background-color: $color-secondary-dark-3;
-      position: relative;
-
-      &::before,
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 3.5rem;
-        height: .3rem;
-        background-color: $color-secondary-dark-3;
-        position: absolute;
-        transition: all .2s ease-in;
-      }
-
-      &::before {
-        top: -1rem;
-      }
-
-      &::after {
-        top: 1rem;
-      }
+      text-decoration: none;
+      color: $color-secondary-dark-3;
     }
 
     &__list {
-      display: none;
-      position: absolute;
-      background-color: $color-primary-dark-1;
-      border-radius: 5%;
-      padding: 3rem;
       list-style: none;
-      top: 0;
-      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__item {
 
     }
 
-    &__link {
-
-      text-decoration: none;
-
-      &:link,
-      &:visited {
-        color: $color-primary-light-2;
-      }
-    }
-
-    &__button:hover .navigation__icon::before {
-      top: -1.2rem;
-    }
-
-    &__button:hover .navigation__icon::after {
-      top: 1.2rem;
-    }
-
-    &__button:hover .navigation__list  {
-      display: inherit;
+    &__item:not(:last-child) {
+      margin-right: 2rem;
     }
   }
-}
+
 
 
 
