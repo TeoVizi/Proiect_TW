@@ -1,10 +1,14 @@
 .header {
+  grid-column: 1/-1;
   background-color: $color-secondary-light-1;
+  position: fixed;
+  width: 100vw;
+  font-size: 2.2rem;
+  z-index: 10;
 
-  position: sticky;
-  font-size: 2rem;
+  &__container {
 
-  .header__container {
+    animation: whooshTop ease-in-out 1s;
     max-width: 120rem;
     margin: 0 auto;
     display: flex;
@@ -12,6 +16,10 @@
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  &__name {
+    color: #231c07;
   }
 
   &__logo {
@@ -24,33 +32,6 @@
     fill: $color-secondary-dark-3;
   }
 }
-
-
-  .navigation {
-
-    &__link,
-    &__link:link,
-    &__link:visited {
-
-      text-decoration: none;
-      color: $color-secondary-dark-3;
-    }
-
-    &__list {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &__item {
-
-    }
-
-    &__item:not(:last-child) {
-      margin-right: 2rem;
-    }
-  }
 
 
 

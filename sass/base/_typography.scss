@@ -1,0 +1,27 @@
+.heading-2 {
+
+  font-size: 7rem;
+  display: block;
+  background-image: linear-gradient(to right, $color-primary-light-2, $color-primary-dark-2);
+  text-align: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 6rem;
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.heading-3 {
+
+  font-size: 3rem;
+  color: $color-black
+}
+
+.heading-4 {
+  font-size: 2rem;
+  color: $color-secondary-dark-2;
+}

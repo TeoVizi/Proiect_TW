@@ -1,14 +1,117 @@
+main {
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) repeat(4, minmax(min-content, 1fr) minmax(6rem, 1fr));
+  grid-column: 1/-1;
+}
+
 .section__happy-customers {
   background-color: #333d29;
 }
 
 .section__hero {
-  background-color: #582f0e;
+
+  grid-column: 1/-1;
+  z-index: 1;
+  position: relative;
+  background-image:
+          linear-gradient(to bottom right,
+                  rgba($color-primary, .8),
+                  rgba($color-primary-dark-2, .8)),
+          url("../../img/hero.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+
+  .heading-1 {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .company-name {
+
+    color: $color-creme;
+    font-family: 'Lora', cursive;
+    text-transform: uppercase;
+    font-size: 10rem;
+    letter-spacing: 1.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: whooshRight ease-in-out 1s ;
+  }
+
+  .hero-words {
+    color: $color-primary-light-1;
+    text-align: center;
+    letter-spacing: .8rem;
+    font-size: 2rem;
+    text-transform: lowercase;
+    animation: whooshBottom ease-in-out 1s;
+  }
 }
 
 .section__promises {
-  background-color: #463f3a;
+
+  grid-column: 2/-2;
+  font-size: 2rem;
+  display: grid;
+  max-width: 120rem;
+  padding: 8rem 0;
+
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 35rem));
+  justify-content: center;
+  align-content: center;
+  align-items: start;
+  justify-items: center;
+  grid-gap: 4rem;
+
+
+  .heading-2 {
+
+    grid-column: 1/-1;
+  }
+
+  .promise {
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+  }
+
+  .promise__icon {
+
+    width: 4rem;
+    fill: $color-secondary-light-2;
+    grid-row: 1/span 2;
+  }
 }
+
+.aside {
+
+  font-size: 1.4rem;
+  text-indent: 1rem;
+  grid-column: -2/-1;
+  background-color: $color-secondary-light-2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: $color-black;
+
+  .note__bold {
+
+    font-weight: 700;
+    color: $color-secondary-dark-2
+  }
+
+}
+
 .section__offers {
-  background-color: #7f4f24;
-}
+  grid-column: 1/-1;
+  background-color: $color-white;
+
+  }
