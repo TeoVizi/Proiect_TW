@@ -27,7 +27,7 @@ main {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -65%);
   }
 
   .company-name {
@@ -55,10 +55,11 @@ main {
 .section__promises {
 
   grid-column: 2/-2;
+  margin: 4rem 2rem;
   font-size: 2rem;
   display: grid;
   max-width: 120rem;
-  padding: 8rem 0;
+  height: 100vh;
 
   grid-template-columns: repeat(auto-fit, minmax(min-content, 35rem));
   justify-content: center;
@@ -111,8 +112,10 @@ main {
   max-width: 120rem;
   margin: 0 auto;
   background-color: $color-white;
-  padding: 10rem 0;
+  padding-top: 5rem;
+  padding-bottom: 20rem;
   grid-gap: 4rem;
+  position: relative;
 
   .offer__flex {
     display: flex;
@@ -122,16 +125,71 @@ main {
   .offer {
 
     background-color: $color-creme;
-    height: 60rem;
+    border-radius: 3rem;
+    overflow: hidden;
+    height: 54rem;
     width: 30rem;
     margin: 3rem;
+
+    &__list {
+
+      list-style: none;
+    }
+
+    &__item {
+
+      text-align: center;
+      display: block;
+      padding: 1rem;
+      font-size: 2rem;
+
+      &:not(:last-child) {
+
+        border-bottom:.1rem solid $color-secondary-dark-2;
+      }
+    }
+
+    &__price {
+      text-align: center;
+      display: block;
+      font-size: 3rem;
+      margin: 2rem;
+
+    }
   }
+
+  .heading-4 {
+
+    padding: 2rem 0 3rem 1rem;
+  }
+
+
   .image-contain--1 {
 
-    background-image: url("../img/card1.jpg");
-    height: 25rem;
+    background-image: linear-gradient(to right, rgba($color-primary, .6), rgba($color-primary, .6)), url("../img/card1.jpg");
+    height: 22rem;
     background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
     background-position: top;
+  }
+
+  .image-contain--2 {
+
+    background-image: linear-gradient(to right, rgba($color-primary, .6), rgba($color-primary, .6)), url("../img/card2.jpg");
+    height: 22rem;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    background-position: top;
+  }
+
+  .image-contain--3 {
+
+    background-image: linear-gradient(to right, rgba($color-primary, .6), rgba($color-primary, .6)), url("../img/card3.jpg");
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    height: 22rem;
+    background-size: cover;
+    background-position: center;
   }
 }
 
