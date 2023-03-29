@@ -1,6 +1,6 @@
 main {
   display: grid;
-  grid-template-columns: minmax(6rem, 1fr) repeat(4, minmax(min-content, 1fr) minmax(6rem, 1fr));
+  grid-template-columns: minmax(3rem, 1fr) repeat(4, minmax(min-content, 1fr) minmax(3rem, 1fr));
   grid-column: 1/-1;
 }
 
@@ -89,11 +89,58 @@ main {
   }
 }
 
-.aside {
+.promise__aside {
 
   font-size: 1.4rem;
   text-indent: 1rem;
   grid-column: -2/-1;
+  background-color: $color-secondary-light-2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: $color-black;
+}
+
+
+
+.section__offers {
+
+  grid-column: 1/-2;
+  max-width: 120rem;
+  margin: 0 auto;
+  background-color: $color-white;
+  padding: 10rem 0;
+  grid-gap: 4rem;
+
+  .offer__flex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .offer {
+
+    background-color: $color-creme;
+    height: 60rem;
+    width: 30rem;
+    margin: 3rem;
+  }
+  .image-contain--1 {
+
+    background-image: url("../img/card1.jpg");
+    height: 25rem;
+    background-size: cover;
+    background-position: top;
+  }
+}
+
+.offers__aside {
+
+  font-size: 1.4rem;
+  text-indent: 1rem;
+  grid-column: -2/-1;
+  grid-row: 3/4;
   background-color: $color-secondary-light-2;
   display: flex;
   flex-direction: column;
@@ -107,11 +154,5 @@ main {
     font-weight: 700;
     color: $color-secondary-dark-2
   }
-
 }
 
-.section__offers {
-  grid-column: 1/-1;
-  background-color: $color-white;
-
-  }
