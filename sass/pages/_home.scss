@@ -4,10 +4,6 @@ main {
   grid-column: 1/-1;
 }
 
-.section__happy-customers {
-  background-color: #333d29;
-}
-
 .section__hero {
 
   grid-column: 1/-1;
@@ -55,7 +51,7 @@ main {
 .section__promises {
 
   grid-column: 2/-2;
-  margin: 4rem 2rem;
+  margin: 4rem 2rem 0;
   font-size: 2rem;
   display: grid;
   max-width: 120rem;
@@ -145,7 +141,7 @@ main {
 
       &:not(:last-child) {
 
-        border-bottom:.1rem solid $color-secondary-dark-2;
+        border-bottom:.1rem solid rgba($color-secondary-light-2, .5);
       }
     }
 
@@ -157,12 +153,6 @@ main {
 
     }
   }
-
-  .heading-4 {
-
-    padding: 2rem 0 3rem 1rem;
-  }
-
 
   .image-contain--1 {
 
@@ -212,5 +202,90 @@ main {
     font-weight: 700;
     color: $color-secondary-dark-2
   }
+
+  .note__link {
+
+    &,
+    &:link,
+    &:visited {
+      color: $color-secondary-dark-2;
+    }
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    &:active {
+      color: $color-secondary-dark-3;
+    }
+  }
 }
+
+.section__happy-customers {
+
+  grid-column: 1/-1;
+  background-image: linear-gradient(to right, rgba($color-secondary-dark-2, .8) 20%, rgba($color-secondary-light-2, .8) ), url("../img/customers.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center;
+
+
+  .review {
+
+    background-color: $color-creme;
+    max-width: 60rem;
+    padding: 6rem 6rem 2rem;
+    transform: skewX(-20deg);
+
+    &:not(:last-child) {
+
+      margin-bottom: 6rem;
+
+      &::before {
+
+        content: '\275D';
+        font-size: 8rem;
+        color: $color-secondary-dark-3;
+        opacity: .6;
+        display: inline-block;
+        position: absolute;
+        transform: translateY(-1rem);
+        top: 0;
+        left: 1rem;
+      }
+
+      &::after {
+
+        content: '\275E';
+        font-size: 8rem;
+        color: $color-secondary-dark-3;
+        opacity: .6;
+        display: inline-block;
+        position: absolute;
+        transform: translateY(-3rem);
+        bottom: 0;
+        right: 1rem;
+      }
+    }
+
+    &__text {
+
+      text-align: center;
+      font-size: 2.2rem;
+      transform: skewX(20deg);
+      margin-bottom: 6rem;
+    }
+
+    &__name {
+
+      font-size: 1.8rem;
+      text-align: end;
+    }
+  }
+}
+
 
