@@ -37,6 +37,43 @@
   &__item {
     display: inline-block;
     position: relative;
+
+    & > .navigation__link::before {
+      content: '';
+      display: inline-block;
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-right: .7rem;
+
+      // OLD
+      background-image: url("../img/arrow.svg");
+      background-size: cover;
+
+      // NEW
+      @supports (-webkit-mask-image: url("")) or (mask-image: url("")) {
+        background-color: $color-primary-dark-2;
+        -webkit-mask-image: url("../img/arrow.svg");
+        -webkit-mask-size: cover;
+        mask-image: url("../img/arrow.svg");
+        mask-size: cover;
+        background-image: none;
+
+      }
+    }
+
+    &:hover > .navigation__link::before {
+      @supports (-webkit-mask-image: url("")) or (mask-image: url("")) {
+        background-color: $color-primary;
+
+        transition: background-color .1ms linear, rotate 1s;
+        transform: rotate(450deg);
+        }
+    }
+
+    & > .navigation__link:only-child::before {
+      content: "";
+      display: none;
+    }
   }
 
   .navigation__item:hover > .dropdown {
