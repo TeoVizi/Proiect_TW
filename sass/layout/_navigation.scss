@@ -1,12 +1,15 @@
 .navigation {
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+
 
   &__link {
+
     display: block;
+    @media screen and (max-width: $lg) {
+      display: flex;
+      justify-content: center;
+    }
+
     padding: 2rem 1.5rem;
 
     &:link,
@@ -32,6 +35,15 @@
   &__list {
     list-style: none;
 
+    @media screen and (max-width: $lg) {
+
+      flex-wrap: wrap;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   }
 
   &__item {
@@ -39,11 +51,18 @@
     position: relative;
 
     & > .navigation__link::before {
+
+      @media screen and (max-width: $lg) {
+
+        display: none;
+      }
+
       content: '';
       display: inline-block;
       height: 1.5rem;
       width: 1.5rem;
       margin-right: .7rem;
+
 
       // OLD
       background-image: url("../img/arrow.svg");
@@ -83,12 +102,21 @@
 
 .dropdown {
   display: none;
+  @media screen and (max-width: $lg) {
+
+    display: inherit;
+    position: relative;
+    box-shadow: none;
+    width: 100%;
+    text-align: center;
+  }
+
   background-color: $color-secondary-light-1;
   list-style: none;
   position: absolute;
-  top: calc(100%);
+  top: 100%;
   left: 0;
-  width: 220%;
+  width: 180%;
   text-align: center;
   box-shadow: 0 3rem 2rem rgba($color-black, .3);
   z-index: 11;

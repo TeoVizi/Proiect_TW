@@ -1,6 +1,6 @@
 main {
   display: grid;
-  grid-template-columns: minmax(3rem, 1fr) repeat(4, minmax(min-content, 1fr) minmax(3rem, 1fr));
+  grid-template-columns: repeat(7, 1fr);
   grid-column: 1/-1;
 }
 
@@ -50,14 +50,23 @@ main {
 
 .section__promises {
 
-  grid-column: 2/-2;
-  margin: 4rem 2rem 0;
+  grid-column: 1/-2;
+
+  @media screen and (max-width: $xl) {
+    grid-column: 1/-1;
+    width: 100%;
+    height: 100%;
+    padding: 10rem 0;
+
+  }
+
+  max-width: 120rem;
+  margin: 3rem auto;
   font-size: 2rem;
   display: grid;
-  max-width: 120rem;
   height: 100vh;
 
-  grid-template-columns: repeat(auto-fit, minmax(min-content, 35rem));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 35rem));
   justify-content: center;
   align-content: center;
   align-items: start;
@@ -91,6 +100,19 @@ main {
   font-size: 1.4rem;
   text-indent: 1rem;
   grid-column: -2/-1;
+  @media screen and (max-width: $xl) {
+    height: 20rem;
+    grid-column: 1/-1;
+  }
+
+  &__text {
+
+    @media screen and (max-width: $xl) {
+      text-align: center;
+      width: 50%;
+    }
+  }
+
   background-color: $color-secondary-light-2;
   display: flex;
   flex-direction: column;
@@ -105,17 +127,30 @@ main {
 .section__offers {
 
   grid-column: 1/-2;
+  @media screen and (max-width: $xl) {
+    grid-column: 1/-1;
+    height: 100%;
+    padding: 10rem 0;
+  }
+
   max-width: 120rem;
+  height: 100vh;
   margin: 0 auto;
   background-color: $color-white;
   padding-top: 5rem;
-  padding-bottom: 20rem;
+  margin-bottom: 20rem;
   grid-gap: 4rem;
   position: relative;
 
   .offer__flex {
     display: flex;
     flex-direction: row;
+
+    @media screen and (max-width: $lg) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .offer {
@@ -126,6 +161,11 @@ main {
     height: 54rem;
     width: 30rem;
     margin: 3rem;
+
+    @media screen and (max-width: $lg) {
+      width: 50vw;
+    }
+
 
     &__list {
 
@@ -161,7 +201,7 @@ main {
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 
-    background-position: top;
+    background-position: center;
   }
 
   .image-contain--2 {
@@ -170,7 +210,7 @@ main {
     height: 22rem;
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-    background-position: top;
+    background-position: center;
   }
 
   .image-contain--3 {
@@ -187,8 +227,15 @@ main {
 
   font-size: 1.4rem;
   text-indent: 1rem;
+
   grid-column: -2/-1;
   grid-row: 3/4;
+  @media screen and (max-width: $xl) {
+    height: 20rem;
+    grid-column: 1/-1;
+    grid-row: 5/6;
+  }
+
   background-color: $color-secondary-light-2;
   display: flex;
   flex-direction: column;
@@ -196,6 +243,15 @@ main {
   align-items: center;
   padding: 1rem;
   color: $color-black;
+
+  &__text {
+
+    @media screen and (max-width: $xl) {
+      width: 50%;
+      text-align: center;
+      text-indent: 0;
+    }
+  }
 
   .note__bold {
 
@@ -233,13 +289,24 @@ main {
   align-items: center ;
   justify-content: center;
 
+  @media screen and (max-width: $lg)
+  {
+    padding: 10rem 0;
+    height: 100%;
+  }
+
 
   .review {
 
     background-color: $color-creme;
-    max-width: 60rem;
+    max-width: 75rem;
     padding: 6rem 6rem 2rem;
     transform: skewX(-20deg);
+
+    @media screen and (max-width: $lg)
+    {
+      height: 100%;
+    }
 
     &:not(:last-child) {
 
