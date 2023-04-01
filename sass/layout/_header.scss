@@ -30,7 +30,8 @@
   }
 
   &__name {
-    color: #231c07;
+    color: $color-black;
+    text-align: center;
   }
 
   &__logo {
@@ -38,6 +39,11 @@
     align-items: center;
     justify-content: center;
 
+    @media screen and (max-width: $lg) {
+
+      flex-direction: column;
+      margin-bottom: 5rem;
+    }
 
   }
 

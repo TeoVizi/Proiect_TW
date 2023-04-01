@@ -13,9 +13,19 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: $lg) {
+      flex-direction: column;
+      text-align: center;
+
+    }
   }
 
   &__icon {
     fill: $color-secondary-light-1;
+
+    @media screen and (max-width: $lg) {
+      margin-bottom: 3rem;
+    }
   }
 }

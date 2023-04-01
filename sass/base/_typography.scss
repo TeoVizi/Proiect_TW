@@ -1,7 +1,7 @@
 .heading-2 {
 
   font-size: 7rem;
-  display: block;
+  display: inline-block;
   background-image: linear-gradient(to right, $color-primary-light-2, $color-primary-dark-2);
   text-align: center;
   background-clip: text;
@@ -12,6 +12,10 @@
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media screen and (max-width: $sm) {
+    font-size: 5rem;
   }
 }
 
