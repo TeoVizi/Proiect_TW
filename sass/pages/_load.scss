@@ -1,0 +1,29 @@
+.load__body {
+  display: flex;
+  height: 100svh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.load_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.load__image {
+  width: 30rem;
+  margin: 3rem;
+}
+.load__title {
+
+  font-size: 3rem;
+  margin: 3rem;
+}
+.load__svg {
+  width: 5rem;
+  animation: load 1s linear infinite;
+}
+

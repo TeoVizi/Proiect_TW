@@ -1,4 +1,4 @@
-main {
+.main {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-column: 1/-1;
@@ -216,7 +216,6 @@ main {
     height: 22rem;
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-
     background-position: center;
   }
 

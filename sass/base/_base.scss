@@ -13,11 +13,16 @@
 html {
   font-size: 62.5%; // 1rem = 10px (10 /16 = 0,625 )
   font-family: 'Lora', serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }

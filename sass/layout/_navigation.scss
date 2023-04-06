@@ -1,5 +1,6 @@
 .navigation {
 
+  backface-visibility: hidden;
 
 
   &__link {
@@ -85,8 +86,9 @@
       @supports (-webkit-mask-image: url("")) or (mask-image: url("")) {
         background-color: $color-primary;
 
-        transition: background-color .1ms linear, rotate 1s;
         transform: rotate(450deg);
+        transition: background-color .1ms linear;
+
         }
     }
 
