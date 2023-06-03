@@ -154,9 +154,11 @@
 #hamburger-button {
   position: fixed;
   z-index: 100;
+  width: 4rem;
   top: 1rem;
   right: 1rem;
   padding: 4px;
+  border-radius: 10%;
   border: black solid 1px;
   background: $color-creme;
   cursor: pointer;
