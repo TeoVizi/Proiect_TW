@@ -48,4 +48,93 @@ window.onload = () => {
             menuItem.addEventListener("click", toggleMenu);
         }
     )
+
+
+    // FORM VALIDATION
+
+    const form = document.getElementsByTagName('form')[0];
+    const name = document.getElementsByClassName('form__input')[0]
+    const email = document.getElementsByClassName('form__input')[1]
+    const textArea = document.getElementsByClassName('form__input')[2]
+    const formContent = document.getElementsByClassName('form__content')[0]
+    const errorMessage = document.createElement('p')
+
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    errorMessage.style.color = 'darkRed'
+    errorMessage.style.padding = '2rem'
+    errorMessage.style.fontSize = '1.4rem'
+    errorMessage.style.backgroundColor = 'mistyRose'
+    errorMessage.style.marginBottom = '2rem'
+    errorMessage.style.borderRadius = '2rem'
+    errorMessage.style.display = 'none'
+    formContent.appendChild(errorMessage)
+
+    const emailValid = (email) => {
+        return email.value.trim().match(validRegex)
+    }
+
+    name.addEventListener('change', (event) => {
+        if (event.target.value.trim().length < 3) {
+            event.target.style.backgroundColor = 'mistyRose'
+            event.target.style.borderBottomColor = 'darkRed'
+        } else {
+            event.target.style.backgroundColor = 'white'
+            event.target.style.borderBottomColor = 'darkGreen'
+        }
+    } )
+
+    email.addEventListener('change', (event) => {
+        if (event.target.value.trim().length < 3) {
+            event.target.style.backgroundColor = 'mistyRose'
+            event.target.style.borderBottomColor = 'darkRed'
+        } else if (!emailValid(event.target)) {
+            event.target.style.backgroundColor = 'mistyRose'
+            event.target.style.borderBottomColor = 'darkRed'
+        } else {
+            event.target.style.backgroundColor = 'white'
+            event.target.style.borderBottomColor = 'darkGreen'
+        }
+    } )
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        errorMessage.style.display = 'none'
+
+        name.style.borderBottomColor = 'white'
+        name.style.backgroundColor = 'white'
+
+        email.style.borderBottomColor = 'white'
+        email.style.backgroundColor = 'white'
+
+        textArea.style.borderBottomColor = 'white'
+        textArea.style.backgroundColor = 'white'
+
+        if (name.value.trim().length ===  0) {
+            errorMessage.innerHTML = 'Please enter a valid name! (non-empty input)!'
+            errorMessage.style.display = 'block'
+            name.style.borderBottomColor = 'darkRed'
+            name.style.backgroundColor = 'mistyRose'
+
+        } else if (email.value.trim().length === 0) {
+
+            errorMessage.innerHTML = 'Please enter a valid email! (non-empty input)!'
+            errorMessage.style.display = 'block'
+            email.style.borderBottomColor = 'darkRed'
+            email.style.backgroundColor = 'mistyRose'
+
+        } else if (!emailValid(email))  {
+            errorMessage.innerHTML = 'Please enter a valid email!'
+            errorMessage.style.display = 'block'
+            email.style.borderBottomColor = 'darkRed'
+            email.style.backgroundColor = 'mistyRose'
+
+        } else if   (textArea.value.trim().length === 0) {
+                    errorMessage.innerHTML = 'Please enter a valid message! (non-empty input)!'
+                    errorMessage.style.display = 'block'
+                    textArea.style.borderBottomColor = 'darkRed'
+                    textArea.style.backgroundColor = 'mistyRose'
+        }
+    })
 }

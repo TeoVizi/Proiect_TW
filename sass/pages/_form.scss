@@ -7,6 +7,9 @@
   }
 }
 
+body {
+  background-color: #f1ece2;
+}
 
 .form__main {
   background-color: $color-creme;
@@ -56,9 +59,9 @@
       border-bottom: 3px solid #136F63;
     }
 
-    &:focus:invalid {
-      border-bottom: 3px solid #D00000;
-    }
+    //&:focus:invalid {
+    //  border-bottom: 3px solid #D00000;
+    //}
 
     &::-webkit-input-placeholder {
       color: $color-primary-light-2;
@@ -140,7 +143,6 @@
       background-color: $color-primary;
       color: $color-primary-light-1;
     }
-
 
   }
 }
