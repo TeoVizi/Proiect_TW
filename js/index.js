@@ -51,29 +51,12 @@ window.onload = () => {
 
     // COOKIES POP-UP
 
-    if (localStorage.getItem('cookiesExpiryDate')) {
-        let expiryDate = localStorage.getItem('cookiesExpiryDate').split('-')
-        let expiryDay = expiryDate[0]
-        let expiryMonth = expiryDate[1]
-        let expiryYear = expiryDate[2]
-
-        const currentDate = new Date();
-
-        let day = currentDate.getDate();
-        let month = currentDate.getMonth() + 1;
-        let year = currentDate.getFullYear();
-
-
-        // TODO EXPIRYDATE AND CURRENTDATE COMPARISON
-
-    }
-
-    if (!localStorage.getItem('cookies')) {
-
+    const cookiesPopup = () => {
         const backdrop = document.createElement("div")
         const overlay = document.createElement('div')
 
         // COOKIES BACKDROP
+
         backdrop.style.width = '100%'
         backdrop.style.height = '100%'
         backdrop.style.backgroundColor = 'black'
@@ -82,10 +65,31 @@ window.onload = () => {
         backdrop.style.top = '0'
         backdrop.style.left = '0'
         backdrop.style.zIndex = '1000'
-        document.body.appendChild(backdrop)
+
+        backdrop.addEventListener('click', () => {
+            localStorage.setItem('cookies', 'decline')
+
+            const date = new Date()
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            const declineDate = `${day}-${month}-${year}`
+            localStorage.setItem('cookiesDeclineDate', declineDate)
+
+            let expiryDate;
+            if (month + 3 <= 12) {
+                expiryDate = `${day}-${month + 3}-${year}`
+            } else {
+                expiryDate = `${day}-${(month + 3) % 12}-${year + 1}`
+            }
+
+            localStorage.setItem('cookiesExpiryDate', expiryDate)
+
+            overlay.remove()
+            backdrop.remove()
+        })
 
         //COOKIES OVERLAY
-
 
         overlay.style.width = '30rem'
         overlay.style.height = '25rem'
@@ -158,6 +162,23 @@ window.onload = () => {
 
         cancelBtn.addEventListener('click', () => {
             localStorage.setItem('cookies', 'decline')
+
+            const date = new Date()
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            const declineDate = `${day}-${month}-${year}`
+            localStorage.setItem('cookiesDeclineDate', declineDate)
+
+            let expiryDate;
+            if (month + 3 <= 12) {
+                expiryDate = `${day}-${month + 3}-${year}`
+            } else {
+                expiryDate = `${day}-${(month + 3) % 12}-${year + 1}`
+            }
+
+            localStorage.setItem('cookiesExpiryDate', expiryDate)
+
             overlay.remove()
             backdrop.remove()
         })
@@ -224,16 +245,58 @@ window.onload = () => {
 
         xBtn.addEventListener('click', () => {
             localStorage.setItem('cookies', 'decline')
+
+            const date = new Date()
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            const declineDate = `${day}-${month}-${year}`
+            localStorage.setItem('cookiesDeclineDate', declineDate)
+
+            let expiryDate;
+            if (month + 3 <= 12) {
+                expiryDate = `${day}-${month + 3}-${year}`
+            } else {
+                expiryDate = `${day}-${(month + 3) % 12}-${year + 1}`
+            }
+
+            localStorage.setItem('cookiesExpiryDate', expiryDate)
+
             overlay.remove()
             backdrop.remove()
         })
 
-        overlay.appendChild(xBtn)
-        overlay.appendChild(cookiesText)
-        buttons.appendChild(cancelBtn)
-        buttons.appendChild(acceptBtn)
-        overlay.appendChild(buttons)
-        document.body.appendChild(overlay)
+        setTimeout(() => {
+            document.body.appendChild(backdrop)
+            overlay.appendChild(xBtn)
+            overlay.appendChild(cookiesText)
+            buttons.appendChild(cancelBtn)
+            buttons.appendChild(acceptBtn)
+            overlay.appendChild(buttons)
+            document.body.appendChild(overlay)
+        }, 1000)
 
+    }
+
+    if (localStorage.getItem('cookiesExpiryDate')) {
+        let expiryDate = localStorage.getItem('cookiesExpiryDate').split('-')
+        let expiryDay = expiryDate[0]
+        let expiryMonth = expiryDate[1]
+        let expiryYear = expiryDate[2]
+
+        const currentDate = new Date();
+
+        let day = currentDate.getDate();
+        let month = currentDate.getMonth() + 1;
+        let year = currentDate.getFullYear();
+
+        if (parseInt(expiryYear) < year ||
+            (parseInt(expiryYear) === year && parseInt(expiryMonth) < month) ||
+            (parseInt(expiryYear) === year && parseInt(expiryMonth) === month && parseInt(expiryDay) < day)) {
+                cookiesPopup()
+        }
+
+    } else {
+        cookiesPopup()
     }
 }
