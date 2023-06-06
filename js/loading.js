@@ -26,13 +26,7 @@ window.onload = () => {
         const now = Date.now()
 
         anotherImage.addEventListener('click', () => {
-            let timer = setInterval(() => {
-                let timePassed = Date.now() - now
-                if(timePassed >= 5000) {
-                    clearInterval(timer)
-                }
-                anotherImage.style.scale = '1.05'
-            }, 1000)
+            anotherImage.style.scale = '1.1'
         })
         document.body.appendChild(anotherImage)
     })
